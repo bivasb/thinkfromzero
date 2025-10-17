@@ -12,7 +12,7 @@
         }
 
         body {
-            background: #0a0a0a;
+            background: radial-gradient(ellipse at center, rgba(0, 50, 100, 0.1) 0%, #0a0a0a 70%), #0a0a0a;
             color: #e0e0e0;
             font-family: 'Courier New', monospace;
             line-height: 1.6;
@@ -220,11 +220,40 @@
         const form = document.getElementById('journey-form');
         const formContainer = document.getElementById('form-container');
         const thankYouMessage = document.getElementById('thank-you-message');
+        const apiUrl = 'https://pvaua2r6di.execute-api.us-east-2.amazonaws.com';
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            formContainer.style.display = 'none';
-            thankYouMessage.style.display = 'block';
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                problem: formData.get('problem')
+            };
+
+            fetch(apiUrl + '/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    formContainer.style.display = 'none';
+                    thankYouMessage.style.display = 'block';
+                } else {
+                    response.json().then(data => {
+                        alert('Error: ' + (data.message || 'Something went wrong.'));
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the form.');
+            });
         });
     </script>
 </body>

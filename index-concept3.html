@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 3: Neural Network</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Behind all content */
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid #00ffcc;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            color: #00ffcc;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            padding-top: 6rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text-container {
+            max-width: 65ch;
+            width: 100%;
+            text-align: left;
+        }
+
+        .tagline {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .sub-tagline {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .description {
+            max-width: 800px;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            padding: 2.5rem 2rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            padding: 2rem;
+            border: 1px solid #00ffcc;
+            border-radius: 4px;
+            background: rgba(0, 255, 204, 0.03);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: #00ffcc;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .feature-text {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .mission {
+            padding: 2.5rem 2rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .mission-title {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+
+        .mission-text {
+            max-width: 65ch;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            line-height: 2;
+            text-align: left;
+        }
+
+        footer {
+            padding: 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            color: #666;
+            background: #0a0a0a;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">THINK FROM ZERO</div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="logo-container">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="400" fill="transparent"/>
+                <circle cx="200" cy="200" r="120" fill="none" stroke="url(#glow)" stroke-width="2" opacity="0.6"/>
+                <g id="n-shape">
+                    <rect x="137.5" y="140" width="25" height="120" fill="#e0e0e0"/>
+                    <polygon points="162.5,140 187.5,140 237.5,260 212.5,260" fill="url(#diagonal-gradient)"/>
+                    <rect x="237.5" y="140" width="25" height="120" fill="#e0e0e0"/>
+                    <circle cx="200" cy="200" r="35" fill="#0a0a0a" stroke="#00ffcc" stroke-width="1.5"/>
+                    <circle cx="200" cy="200" r="30" fill="none" stroke="#00ffcc" stroke-width="0.5" opacity="0.3"/>
+                </g>
+                <text x="205" y="310" font-family="'Courier New', monospace" font-size="48" font-weight="700" fill="#e0e0e0" text-anchor="middle" letter-spacing="8">NULL</text>
+                <text x="205" y="330" font-family="'Courier New', monospace" font-size="10" fill="#00ffcc" text-anchor="middle" letter-spacing="3" opacity="0.7">Build, Amplified</text>
+                <defs>
+                    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0.4" />
+                    </linearGradient>
+                    <linearGradient id="diagonal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="hero-text-container">
+            <h1 class="tagline">Your Code is Fast. Your Thinking Isn't.</h1>
+            <h2 class="sub-tagline">With AI-driven development, the most valuable skill is clarity.</h2>
+            <p class="description">
+                <strong>Think from Zero</strong> is an effort to master the new software development lifecycle: from first principles to market-ready product, powered by a fundamentally new way of thinking.
+            </p>
+        </div>
+    </section>
+
+    <section class="mission">
+        <h2 class="mission-title">The New Bottleneck</h2>
+        <p class="mission-text">
+            AI agents can write boilerplate, build features, and refactor code in seconds. So where is the friction? It's in our meetings. Our roadmaps. Our inherited ideas of what a product "should" be. The "way we've always done it" is now the slowest part of your stack.
+            <br><br>
+            The cost of a bad decision is now higher than the cost of implementation.
+        </p>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature">
+                <h3 class="feature-title">Zero-Base the Value Prop</h3>
+                <p class="feature-text">Forget your current product. What problem are you solving, and what is the most direct solution imaginable?</p>
+            </div>
+            <div class="feature">
+                <h3 class="feature-title">Zero-Base the Marketing</h3>
+                <p class="feature-text">Your product's story isn't something you add later. It <em>is</em> the product. Define the narrative first.</p>
+            </div>
+            <div class="feature">
+                <h3 class="feature-title">Zero-Base the Build</h3>
+                <p class="feature-text">Leverage agentic frameworks to execute on that clear, singular vision.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Think From Zero. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ffcc"
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffcc",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+</body>
+</html>

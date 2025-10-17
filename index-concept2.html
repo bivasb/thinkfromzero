@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 2: HUD Blueprint</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            background-image: 
+                linear-gradient(rgba(0, 255, 204, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid #00ffcc;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            color: #00ffcc;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .main-container {
+            padding: 8rem 2rem 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 1rem;
+            grid-template-areas:
+                "hero hero hero"
+                "mission mission features"
+                "footer footer footer";
+        }
+
+        .grid-item {
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            background: rgba(10, 10, 10, 0.8);
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero { grid-area: hero; text-align: center; }
+        .mission { grid-area: mission; }
+        .features { grid-area: features; }
+        footer { grid-area: footer; text-align: center; border-top: 1px solid #1a1a1a; padding-top: 1rem;}
+
+        .logo-container {
+            max-width: 300px; /* smaller logo */
+            width: 100%;
+            margin: 0 auto 1rem auto;
+        }
+
+        .hero-text-container {
+            max-width: 65ch;
+            width: 100%;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .tagline {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .sub-tagline {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .features-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature {
+            padding: 1rem;
+            border: 1px solid #00ffcc;
+            border-radius: 4px;
+            background: rgba(0, 255, 204, 0.03);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: #00ffcc;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .feature-text {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            color: #00ffcc;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+        }
+
+        .mission-text {
+            max-width: 65ch;
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            line-height: 2;
+            text-align: left;
+        }
+
+        .scan-line {
+            position: fixed;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">THINK FROM ZERO</div>
+        </div>
+    </nav>
+
+    <div class="scan-line"></div>
+
+    <main class="main-container">
+        <section class="hero grid-item">
+            <div class="logo-container">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="400" fill="transparent"/>
+                    <circle cx="200" cy="200" r="120" fill="none" stroke="url(#glow)" stroke-width="2" opacity="0.6"/>
+                    <g id="n-shape">
+                        <rect x="137.5" y="140" width="25" height="120" fill="#e0e0e0"/>
+                        <polygon points="162.5,140 187.5,140 237.5,260 212.5,260" fill="url(#diagonal-gradient)"/>
+                        <rect x="237.5" y="140" width="25" height="120" fill="#e0e0e0"/>
+                        <circle cx="200" cy="200" r="35" fill="#0a0a0a" stroke="#00ffcc" stroke-width="1.5"/>
+                        <circle cx="200" cy="200" r="30" fill="none" stroke="#00ffcc" stroke-width="0.5" opacity="0.3"/>
+                    </g>
+                    <text x="205" y="310" font-family="'Courier New', monospace" font-size="48" font-weight="700" fill="#e0e0e0" text-anchor="middle" letter-spacing="8">NULL</text>
+                    <text x="205" y="330" font-family="'Courier New', monospace" font-size="10" fill="#00ffcc" text-anchor="middle" letter-spacing="3" opacity="0.7">Build, Amplified</text>
+                    <defs>
+                        <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0.4" />
+                        </linearGradient>
+                        <linearGradient id="diagonal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="hero-text-container">
+                <h1 class="tagline">Your Code is Fast. Your Thinking Isn't.</h1>
+                <h2 class="sub-tagline">With AI-driven development, the most valuable skill is clarity.</h2>
+            </div>
+        </section>
+
+        <section class="mission grid-item">
+            <h2 class="mission-title">The New Bottleneck</h2>
+            <p class="mission-text">
+                AI agents can write boilerplate, build features, and refactor code in seconds. So where is the friction? It's in our meetings. Our roadmaps. Our inherited ideas of what a product "should" be. The "way we've always done it" is now the slowest part of your stack.
+                <br><br>
+                The cost of a bad decision is now higher than the cost of implementation.
+            </p>
+        </section>
+
+        <section class="features grid-item">
+            <div class="features-container">
+                <div class="feature">
+                    <h3 class="feature-title">Zero-Base the Value Prop</h3>
+                    <p class="feature-text">Forget your current product. What problem are you solving, and what is the most direct solution imaginable?</p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Zero-Base the Marketing</h3>
+                    <p class="feature-text">Your product's story isn't something you add later. It <em>is</em> the product. Define the narrative first.</p>
+                </div>
+                <div class="feature">
+                    <h3 class="feature-title">Zero-Base the Build</h3>
+                    <p class="feature-text">Leverage agentic frameworks to execute on that clear, singular vision.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="grid-item">
+            <p>&copy; 2025 Think From Zero. All rights reserved.</p>
+        </footer>
+    </main>
+
+</body>
+</html>

@@ -28,10 +28,55 @@
             z-index: -1;
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid #00ffcc;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            color: #00ffcc;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            padding-top: 6rem;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -56,7 +101,9 @@
         }
 
         input, textarea, button {
-            width: 100%;
+            width: 66.66%;
+            margin-left: auto;
+            margin-right: auto;
             padding: 0.75rem;
             margin-bottom: 1rem;
             background: #1a1a1a;
@@ -64,6 +111,10 @@
             color: #e0e0e0;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
+        }
+
+        textarea {
+            height: 8rem;
         }
 
         button {
@@ -83,6 +134,17 @@
     </style>
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">THINK FROM ZERO</a>
+            <ul class="nav-links">
+                <li><a href="https://glowupmyresume.com" target="_blank">GLOWUPMYRESUME</a></li>
+                <li><a href="https://silkroutefutures.com" target="_blank">SILKROUTEFUTURES</a></li>
+                <li><a href="https://sensaraa.bbiswas.com" target="_blank">SENSARAa</a></li>
+                <li><a href="https://bbiswas.com" target="_blank">BBISWAS.COM</a></li>
+            </ul>
+        </div>
+    </nav>
     <div id="particles-js"></div>
     <div class="container">
         <h1>Begin Your Journey</h1>

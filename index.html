@@ -55,6 +55,44 @@
             font-weight: 700;
         }
 
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #00ffcc;
+            color: #0a0a0a;
+            border: 1px solid #00ffcc;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #00ffcc;
+        }
+
+        .footer-cta {
+            margin-bottom: 2rem;
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -165,14 +203,22 @@
             position: relative;
             z-index: 10;
         }
+
+
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
 
-    <nav>
+    <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">THINK FROM ZERO</div>
+            <ul class="nav-links">
+                <li><a href="https://glowupmyresume.com" target="_blank">GLOWUPMYRESUME</a></li>
+                <li><a href="https://silkroutefutures.com" target="_blank">SILKROUTEFUTURES</a></li>
+                <li><a href="https://sensaraa.bbiswas.com" target="_blank">SENSARAa</a></li>
+                <li><a href="https://bbiswas.com" target="_blank">BBISWAS.COM</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -239,8 +285,10 @@
     </section>
 
     <footer>
+        <a href="assessment-start.html" class="btn-primary footer-cta">BEGIN YOUR JOURNEY</a>
         <p>&copy; 2025 Think From Zero. All rights reserved.</p>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>

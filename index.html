@@ -105,10 +105,15 @@
             animation: fadeIn 1.5s ease-in;
         }
 
+        .hero-text-container {
+            max-width: 65ch;
+            width: 100%;
+            text-align: left;
+        }
+
         .tagline {
             font-size: 2.5rem;
             color: #00ffcc;
-            text-align: center;
             letter-spacing: 4px;
             margin-bottom: 1rem;
             animation: fadeIn 2s ease-in;
@@ -117,16 +122,13 @@
         .sub-tagline {
             font-size: 1.5rem;
             color: #e0e0e0;
-            text-align: center;
             letter-spacing: 2px;
             margin-bottom: 1.5rem;
-            max-width: 700px;
             animation: fadeIn 2.5s ease-in;
         }
         
         .description {
             max-width: 800px;
-            text-align: center;
             font-size: 1.1rem;
             color: #b0b0b0;
             margin-bottom: 1.5rem;
@@ -175,7 +177,6 @@
 
         .mission {
             padding: 2.5rem 2rem; /* Reduced vertical padding */
-            text-align: center;
         }
 
         .mission-title {
@@ -183,14 +184,16 @@
             color: #00ffcc;
             margin-bottom: 1rem;
             letter-spacing: 4px;
+            text-align: center;
         }
 
         .mission-text {
-            max-width: 800px;
+            max-width: 65ch; /* Narrower width */
             margin: 0 auto;
             font-size: 1.2rem;
             color: #b0b0b0;
             line-height: 2;
+            text-align: left; /* Left aligned */
         }
 
         .scan-line {
@@ -276,11 +279,13 @@
                 <path d="M 320 320 L 320 300 M 320 320 L 300 320" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
             </svg>
         </div>
-        <h1 class="tagline">Your Code is Fast. Your Thinking Isn't.</h1>
-        <h2 class="sub-tagline">With AI-driven development, the most valuable skill is clarity.</h2>
-        <p class="description">
-            <strong>Think from Zero</strong> is an effort to master the new software development lifecycle: from first principles to market-ready product, powered by a fundamentally new way of thinking.
-        </p>
+        <div class="hero-text-container">
+            <h1 class="tagline">Your Code is Fast. Your Thinking Isn't.</h1>
+            <h2 class="sub-tagline">With AI-driven development, the most valuable skill is clarity.</h2>
+            <p class="description">
+                <strong>Think from Zero</strong> is an effort to master the new software development lifecycle: from first principles to market-ready product, powered by a fundamentally new way of thinking.
+            </p>
+        </div>
     </section>
 
     <!-- Mission Section -->

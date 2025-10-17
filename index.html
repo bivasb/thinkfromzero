@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Null - Think From Zero</title>
+    <title>Think From Zero</title>
     <style>
         * {
             margin: 0;
@@ -95,7 +95,7 @@
             align-items: center;
             padding: 2rem;
             padding-top: 6rem;
-            position: relative;
+            text-align: center;
         }
 
         .logo-container {
@@ -105,13 +105,8 @@
             animation: fadeIn 1.5s ease-in;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .tagline {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: #00ffcc;
             text-align: center;
             letter-spacing: 4px;
@@ -119,38 +114,28 @@
             animation: fadeIn 2s ease-in;
         }
 
+        .sub-tagline {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+            animation: fadeIn 2.5s ease-in;
+        }
+        
         .description {
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
             font-size: 1.1rem;
             color: #b0b0b0;
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            animation: fadeIn 2.5s ease-in;
-        }
-
-        .cta-button {
-            padding: 1rem 3rem;
-            background: transparent;
-            border: 2px solid #00ffcc;
-            color: #00ffcc;
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
             animation: fadeIn 3s ease-in;
         }
 
-        .cta-button:hover {
-            background: #00ffcc;
-            color: #0a0a0a;
-            box-shadow: 0 0 20px #00ffcc;
-        }
-
         .features {
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem; /* Reduced vertical padding */
             background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
         }
 
@@ -163,7 +148,7 @@
         }
 
         .feature {
-            padding: 1.5rem;
+            padding: 2rem;
             border: 1px solid #00ffcc;
             border-radius: 4px;
             background: rgba(0, 255, 204, 0.03);
@@ -189,7 +174,7 @@
         }
 
         .mission {
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem; /* Reduced vertical padding */
             text-align: center;
         }
 
@@ -222,6 +207,11 @@
             0% { top: 0; }
             100% { top: 100%; }
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         footer {
             padding: 2rem 2rem;
@@ -230,24 +220,13 @@
             color: #666;
             font-size: 0.9rem;
         }
-
-        .corner-brackets {
-            position: fixed;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .top-left { top: 20px; left: 20px; }
-        .top-right { top: 20px; right: 20px; transform: scaleX(-1); }
-        .bottom-left { bottom: 20px; left: 20px; transform: scaleY(-1); }
-        .bottom-right { bottom: 20px; right: 20px; transform: scale(-1); }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="nav-logo">NULL</div>
+            <div class="nav-logo">THINK FROM ZERO</div>
             <ul class="nav-links">
                 <li><a href="https://glowupmyresume.com" target="_blank">GLOWUPMYRESUME</a></li>
                 <li><a href="https://silkroutefutures.com" target="_blank">SILKROUTEFUTURES</a></li>
@@ -259,20 +238,6 @@
 
     <!-- Scanning line effect -->
     <div class="scan-line"></div>
-
-    <!-- Corner brackets -->
-    <svg class="corner-brackets top-left" width="40" height="40">
-        <path d="M 0 0 L 0 20 M 0 0 L 20 0" stroke="#00ffcc" stroke-width="2" fill="none"/>
-    </svg>
-    <svg class="corner-brackets top-right" width="40" height="40">
-        <path d="M 0 0 L 0 20 M 0 0 L 20 0" stroke="#00ffcc" stroke-width="2" fill="none"/>
-    </svg>
-    <svg class="corner-brackets bottom-left" width="40" height="40">
-        <path d="M 0 0 L 0 20 M 0 0 L 20 0" stroke="#00ffcc" stroke-width="2" fill="none"/>
-    </svg>
-    <svg class="corner-brackets bottom-right" width="40" height="40">
-        <path d="M 0 0 L 0 20 M 0 0 L 20 0" stroke="#00ffcc" stroke-width="2" fill="none"/>
-    </svg>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -290,7 +255,7 @@
                 </g>
                 
                 <text x="205" y="310" font-family="'Courier New', monospace" font-size="48" font-weight="700" fill="#e0e0e0" text-anchor="middle" letter-spacing="8">NULL</text>
-                <text x="205" y="330" font-family="'Courier New', monospace" font-size="10" fill="#00ffcc" text-anchor="middle" letter-spacing="3" opacity="0.7">Mind, amplified!</text>
+                <text x="205" y="330" font-family="'Courier New', monospace" font-size="10" fill="#00ffcc" text-anchor="middle" letter-spacing="3" opacity="0.7">Build, Amplified</text>
                 
                 <defs>
                     <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -311,62 +276,52 @@
                 <path d="M 320 320 L 320 300 M 320 320 L 300 320" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
             </svg>
         </div>
-
-        <h1 class="tagline">THINK FROM ZERO</h1>
-        
+        <h1 class="tagline">Your Code is Fast. Your Thinking Isn't.</h1>
+        <h2 class="sub-tagline">With AI-driven development, the most valuable skill is clarity.</h2>
         <p class="description">
-            AI-powered solutions that empower you with data and analysis. 
-            Break free from conventional thinking. Lower the barrier to systematic, advanced reasoning. 
-            Start from nothing. Build everything.
+            <strong>Think from Zero</strong> is an effort to master the new software development lifecycle: from first principles to market-ready product, powered by a fundamentally new way of thinking.
         </p>
+    </section>
 
-        <button class="cta-button">Begin Your Journey</button>
+    <!-- Mission Section -->
+    <section class="mission">
+        <h2 class="mission-title">The New Bottleneck</h2>
+        <p class="mission-text">
+            AI agents can write boilerplate, build features, and refactor code in seconds. So where is the friction? It's in our meetings. Our roadmaps. Our inherited ideas of what a product "should" be. The "way we've always done it" is now the slowest part of your stack.
+            <br><br>
+            The cost of a bad decision is now higher than the cost of implementation.
+        </p>
     </section>
 
     <!-- Features Section -->
     <section class="features">
         <div class="features-container">
             <div class="feature">
-                <h3 class="feature-title">AUTONOMY</h3>
+                <h3 class="feature-title">Zero-Base the Value Prop</h3>
                 <p class="feature-text">
-                    Break free from following others' frameworks. Think independently. Build your own mental models from the ground up.
+                    Forget your current product. What problem are you solving, and what is the most direct solution imaginable?
                 </p>
             </div>
 
             <div class="feature">
-                <h3 class="feature-title">EMPOWERMENT</h3>
+                <h3 class="feature-title">Zero-Base the Marketing</h3>
                 <p class="feature-text">
-                    Access advanced analytical tools without prerequisites. Democratize systematic thinking for everyone, everywhere.
+                    Your product's story isn't something you add later. It <em>is</em> the product. Define the narrative first.
                 </p>
             </div>
 
             <div class="feature">
-                <h3 class="feature-title">CLARITY</h3>
+                <h3 class="feature-title">Zero-Base the Build</h3>
                 <p class="feature-text">
-                    Cut through noise. Start from first principles. Build understanding that's truly yours, not borrowed from others.
+                    Leverage agentic frameworks to execute on that clear, singular vision. Let the machines handle the 'how' so you can focus on the 'what' and 'why'.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
-        <h2 class="mission-title">OUR MISSION</h2>
-        <p class="mission-text">
-            Null exists to democratize advanced thinking through AI-powered tools.
-            From career optimization to market analysis, from personal insights to professional growth—
-            we build solutions that put sophisticated reasoning in everyone's hands.
-            <br><br>
-            No gatekeepers. No prerequisites. Just powerful tools that amplify your mind and help you
-            make sense of complex data, so you can make your own dent in the world.
-            <br><br>
-            Start from zero. Think without limits.
-        </p>
-    </section>
-
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Null. All rights reserved. Think From Zero.</p>
+        <p>&copy; 2025 Think From Zero. All rights reserved.</p>
     </footer>
 </body>
 </html>

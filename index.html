@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Think From Zero</title>
+    <title>Concept 3: Neural Network</title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,15 @@
             font-family: 'Courier New', monospace;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Behind all content */
         }
 
         nav {
@@ -46,47 +55,6 @@
             font-weight: 700;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border: 1px solid transparent;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
         .hero {
             min-height: 100vh;
             display: flex;
@@ -102,7 +70,6 @@
             max-width: 400px;
             width: 100%;
             margin-bottom: 0.5rem;
-            animation: fadeIn 1.5s ease-in;
         }
 
         .hero-text-container {
@@ -116,7 +83,6 @@
             color: #00ffcc;
             letter-spacing: 4px;
             margin-bottom: 1rem;
-            animation: fadeIn 2s ease-in;
         }
 
         .sub-tagline {
@@ -124,7 +90,6 @@
             color: #e0e0e0;
             letter-spacing: 2px;
             margin-bottom: 1.5rem;
-            animation: fadeIn 2.5s ease-in;
         }
         
         .description {
@@ -133,12 +98,12 @@
             color: #b0b0b0;
             margin-bottom: 1.5rem;
             line-height: 1.8;
-            animation: fadeIn 3s ease-in;
         }
 
         .features {
-            padding: 2.5rem 2rem; /* Reduced vertical padding */
-            background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
+            padding: 2.5rem 2rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .features-container {
@@ -154,13 +119,6 @@
             border: 1px solid #00ffcc;
             border-radius: 4px;
             background: rgba(0, 255, 204, 0.03);
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            border-color: #00d9ff;
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
-            transform: translateY(-5px);
         }
 
         .feature-title {
@@ -176,7 +134,9 @@
         }
 
         .mission {
-            padding: 2.5rem 2rem; /* Reduced vertical padding */
+            padding: 2.5rem 2rem;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(5px);
         }
 
         .mission-title {
@@ -188,32 +148,12 @@
         }
 
         .mission-text {
-            max-width: 65ch; /* Narrower width */
+            max-width: 65ch;
             margin: 0 auto;
             font-size: 1.2rem;
             color: #b0b0b0;
             line-height: 2;
-            text-align: left; /* Left aligned */
-        }
-
-        .scan-line {
-            position: fixed;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00ffcc, transparent);
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            text-align: left;
         }
 
         footer {
@@ -221,34 +161,26 @@
             text-align: center;
             border-top: 1px solid #1a1a1a;
             color: #666;
-            font-size: 0.9rem;
+            background: #0a0a0a;
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <div id="particles-js"></div>
+
     <nav>
         <div class="nav-container">
             <div class="nav-logo">THINK FROM ZERO</div>
-            <ul class="nav-links">
-                <li><a href="https://glowupmyresume.com" target="_blank">GLOWUPMYRESUME</a></li>
-                <li><a href="https://silkroutefutures.com" target="_blank">SILKROUTEFUTURES</a></li>
-                <li><a href="https://sensaraa.bbiswas.com" target="_blank">SENSAARA</a></li>
-                <li><a href="https://bbiswas.com" target="_blank">BBISWAS</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Scanning line effect -->
-    <div class="scan-line"></div>
-
-    <!-- Hero Section -->
     <section class="hero">
         <div class="logo-container">
             <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                <rect width="400" height="400" fill="#0a0a0a"/>
+                <rect width="400" height="400" fill="transparent"/>
                 <circle cx="200" cy="200" r="120" fill="none" stroke="url(#glow)" stroke-width="2" opacity="0.6"/>
-                
                 <g id="n-shape">
                     <rect x="137.5" y="140" width="25" height="120" fill="#e0e0e0"/>
                     <polygon points="162.5,140 187.5,140 237.5,260 212.5,260" fill="url(#diagonal-gradient)"/>
@@ -256,10 +188,8 @@
                     <circle cx="200" cy="200" r="35" fill="#0a0a0a" stroke="#00ffcc" stroke-width="1.5"/>
                     <circle cx="200" cy="200" r="30" fill="none" stroke="#00ffcc" stroke-width="0.5" opacity="0.3"/>
                 </g>
-                
                 <text x="205" y="310" font-family="'Courier New', monospace" font-size="48" font-weight="700" fill="#e0e0e0" text-anchor="middle" letter-spacing="8">NULL</text>
                 <text x="205" y="330" font-family="'Courier New', monospace" font-size="10" fill="#00ffcc" text-anchor="middle" letter-spacing="3" opacity="0.7">Build, Amplified</text>
-                
                 <defs>
                     <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0.8" />
@@ -271,12 +201,6 @@
                         <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
                     </linearGradient>
                 </defs>
-                
-                <line x1="0" y1="200" x2="400" y2="200" stroke="#00ffcc" stroke-width="0.5" opacity="0.2"/>
-                <path d="M 80 80 L 80 100 M 80 80 L 100 80" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
-                <path d="M 320 80 L 320 100 M 320 80 L 300 80" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
-                <path d="M 80 320 L 80 300 M 80 320 L 100 320" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
-                <path d="M 320 320 L 320 300 M 320 320 L 300 320" stroke="#00ffcc" stroke-width="1.5" fill="none" opacity="0.5"/>
             </svg>
         </div>
         <div class="hero-text-container">
@@ -288,7 +212,6 @@
         </div>
     </section>
 
-    <!-- Mission Section -->
     <section class="mission">
         <h2 class="mission-title">The New Bottleneck</h2>
         <p class="mission-text">
@@ -298,35 +221,101 @@
         </p>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
         <div class="features-container">
             <div class="feature">
                 <h3 class="feature-title">Zero-Base the Value Prop</h3>
-                <p class="feature-text">
-                    Forget your current product. What problem are you solving, and what is the most direct solution imaginable?
-                </p>
+                <p class="feature-text">Forget your current product. What problem are you solving, and what is the most direct solution imaginable?</p>
             </div>
-
             <div class="feature">
                 <h3 class="feature-title">Zero-Base the Marketing</h3>
-                <p class="feature-text">
-                    Your product's story isn't something you add later. It <em>is</em> the product. Define the narrative first.
-                </p>
+                <p class="feature-text">Your product's story isn't something you add later. It <em>is</em> the product. Define the narrative first.</p>
             </div>
-
             <div class="feature">
                 <h3 class="feature-title">Zero-Base the Build</h3>
-                <p class="feature-text">
-                    Leverage agentic frameworks to execute on that clear, singular vision. Let the machines handle the 'how' so you can focus on the 'what' and 'why'.
-                </p>
+                <p class="feature-text">Leverage agentic frameworks to execute on that clear, singular vision.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Think From Zero. All rights reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ffcc"
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffcc",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
 </body>
 </html>

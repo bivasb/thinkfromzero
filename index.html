@@ -72,6 +72,65 @@
             font-size: 0.9rem;
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #00ffcc;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: rgba(10, 10, 10, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                border-bottom: 1px solid #00ffcc;
+                padding: 1rem 0;
+            }
+
+            .nav-links.nav-active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                margin-left: 0;
+            }
+
+            .hamburger.active .hamburger-line:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .hamburger-line:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+
         .btn-primary {
             display: inline-block;
             padding: 1rem 2rem;
@@ -214,6 +273,11 @@
     <nav class="main-nav">
         <div class="nav-container">
             <a href="/index.html" class="nav-logo">THINK FROM ZERO</a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="https://glowupmyresume.com" target="_blank">GLOWUPMYRESUME</a></li>
                 <li><a href="https://silkroutefutures.com" target="_blank">SILKROUTEFUTURES</a></li>
@@ -363,6 +427,23 @@
                 }
             },
             "retina_detect": true
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('nav-active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('nav-active');
+            });
         });
     </script>
 
